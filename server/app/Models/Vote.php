@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vote extends Model
 {
+    protected $fillable = [
+        'vote'
+    ];
+
     public function user() {
-        $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function album() {
-        $this->hasOne(Album::class);
+        return $this->belongsTo(Album::class);
     }
 }

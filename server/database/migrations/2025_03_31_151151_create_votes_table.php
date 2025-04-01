@@ -16,9 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('album_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('album_id')->references('id')->on('albums');
-            $table->boolean("upvote");
-            $table->boolean("downvote");
+            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
+            $table->boolean("vote")->default(null);
             $table->timestamps();
         });
     }
