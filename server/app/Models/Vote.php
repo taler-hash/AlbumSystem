@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Vote extends Model
 {
     protected $fillable = [
+        'album_id',
+        'user_id',
         'vote'
     ];
 

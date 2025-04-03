@@ -32,5 +32,12 @@ class AlbumSeeder extends Seeder
             'name' => 'Mayhem',
             'artist_name' => 'Lady Gaga',
         ]);
+
+        for($x = 0; $x < 30; $x++) {
+            Album::create([
+                'name' => fake()->name,
+                'artist_name' => fake()->name,
+            ]);
+        }
     }
 }

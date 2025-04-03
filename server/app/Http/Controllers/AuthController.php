@@ -9,19 +9,20 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\LogoutRequest;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     public function login(LoginRequest $request) {
         $user = User::where('username', $request->username)->first();
-
-        if(!$user && !Hash::check($request->password, $user->password)) {
+        
+        if(!Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'username' => 'These credentials do not match our records.',
             ]);
         }
 
-        return response()->json($this->issueToken($user), 200);
+        return response()->json(['token' => $this->issueToken($user), 'user' => $user->load('roles')], 200);
     }
 
     public function register(RegisterRequest $request) {
@@ -33,13 +34,15 @@ class AuthController extends Controller
 
         $user->assignRole($request->role);
 
-        return response()->json($this->issueToken($user), 200);
+        return response()->json(['token' => $this->issueToken($user), 'user' => $user], 200);
     }
 
-    public function logout(LogoutRequest $request) {
-        $user = User::find($request->id);
+    public function logout() {
+        Auth::guard('sanctum')->user()->currentAccessToken()->delete();
+    }
 
-        $user->currentAccessToken()->delete();
+    public function getUserDetails() {
+        return response()->json(Auth::guard('sanctum')->user()->load('roles'), 200);
     }
 
     private function issueToken(User $user) {

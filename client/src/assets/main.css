@@ -1,0 +1,413 @@
+body {
+  color: #212121;
+  padding: 0;
+  margin: 0;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  padding: 1rem;
+  width: 24rem;
+  border-radius: 10px;
+  border: 1px solid #ccc !important
+}
+
+.card-header {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.card-title {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+
+.card-content {
+  padding-bottom: 1rem;
+}
+
+.input-wrapper {
+  width: 100%;
+}
+
+.input-header {
+  font-size: large;
+  font-weight: 500;
+}
+
+.input-wrapper > input {
+  font-size: large;
+  font-weight: bolder;
+  color:#4a5568;
+  padding: 0.8rem 0.5rem 0.8rem 0.5rem;
+  width: 95%;
+  border-radius: 10px;
+  border: 1px solid #ccc !important
+}
+
+.input-errors {
+  color: red;
+  font-size: small;
+  font-weight: 400;
+}
+
+.input-errors > p {
+  margin: 0;
+}
+
+.button {
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  font-size: larger;
+  font-weight: bolder;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc !important;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.02);
+}
+
+.card-wrapper {
+  position: relative;
+  width: calc(100% - 6rem);
+  display: grid;
+  gap: 3rem; /* Adds space between cards */
+  padding: 3rem;
+  place-items: center;
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default: 1 column for small screens */
+  overflow-x: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns for medium screens */
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .card-wrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns for large screens */
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .card-wrapper {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns for extra-large screens */
+  }
+}
+
+.card-list {
+  overflow: hidden;
+  width: 100%;
+  height: 25rem;
+  border-radius: 10px;
+  border: 1px solid #ccc !important;
+  background: white;
+}
+
+.card-list-cover {
+  width: 100%;
+  height: 18rem;
+  background-color: #020618;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.card-list-cover span {
+  scale: 1.75;
+}
+
+
+.card-list-header {
+  color: #030712;
+  width: calc(100%-1rem);
+  padding: 0.5rem;
+  font-size: large;
+  font-weight: bold;
+}
+
+.card-list-content {
+  width: calc(100%-1rem);
+  padding: 0 0.5rem 0 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-list-content > .details {
+  width: 100%;
+  display: flex;
+  font-size: small;
+  font-weight: 500;
+  color: #6a7282;
+}
+
+.card-list-content > .details > .details-key {
+  width: fit-content;
+  margin-right: 0.5rem;
+}
+
+.card-list-content-wrapper {
+  width: 100%;
+  height: 28%;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.album-header {
+  z-index: 2;
+  width: 100%;
+  height: 4rem;
+  position: sticky;
+  top: 0;
+  background-color: #f3f4f6;
+}
+
+.album-header-wrapper {
+  width: calc(100%-2rem);
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.album-content {
+  width: 100%;
+  height: calc(100% - 3rem);
+}
+
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  border-top: 5px solid black;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.upvote-button {
+  color: red;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.downvote-button {
+  color: gray;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-left: 1rem;
+}
+
+.delete-button {
+  color: rgb(71, 71, 71);
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-left: 1rem;
+}
+
+.upvote-button > svg {
+  fill: red;
+}
+
+.upvote-button:hover, .downvote-button:hover {
+  transform: scale(1.25);
+}
+
+.card-list-footer {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.card-list-footer .upvotes {
+  font-size: large;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+}
+
+.card-list-footer-vote {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.account-wrapper {
+  position: relative;
+}
+
+.account-wrapper > .profile {
+  font-weight: bold;
+  font-size: x-large;
+  padding: 0rem 0.5rem 0.1rem 0.5rem;
+  border-radius: 15px;
+  border:#ccc 1px solid;
+  background-color: white;
+  cursor: pointer;
+}
+
+.account-settings {
+  position: absolute;
+  width: 12rem;
+  right: 0px;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #ccc !important;
+  background-color: white;
+}
+
+.account-settings-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.account-settings-wrapper-option-name {
+  border-bottom: 1px solid #ccc !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.account-settings-wrapper-option-name p {
+  margin: 0;
+}
+
+.account-settings-wrapper-option-logout button {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 0.5rem 0;
+  font-weight: bolder;
+  background-color: white;
+  border: 0px;
+}
+
+.account-settings-wrapper {
+  margin: 0;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .pagination-container {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px 0px;
+}
+.pagination .paginate-buttons {
+  width: 40px;
+  height: 40px;
+  margin-inline: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 2px;
+}
+.pagination .back-button {
+  width: 70px;
+}
+.pagination .next-button {
+  width: 70px;
+}
+.pagination .back-button svg {
+  transform: rotate(180deg);
+}
+.pagination .active-page {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+.pagination .paginate-buttons:hover {
+  background-color: #e5e5e5;
+}
+.pagination .active-page:hover {
+  background-color: #888888;
+  color: #fff;
+}
+.pagination .back-button:active,
+.pagination .next-button:active {
+  background-color: #dedede;
+}
+
+
+
