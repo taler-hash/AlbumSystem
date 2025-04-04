@@ -18,7 +18,7 @@
 ### Installation
 1. Download all the necessary prerequisites
 2. After downloading clone the applcation `https://github.com/taler-hash/AlbumSystem.git`
-3. Download the [.env](https://drive.google.com/file/d/1z_LDvC2jkgNIZm4Zayb0cis34OWKiJ3p/view?usp=drive_link ".env") and after downloading rename it to .env
+3. Download the [.env](https://drive.google.com/file/d/1t9iHDsGhI5GGjgeYDgffGrMJd7GMhTUV/view?usp=drive_link ".env") and after downloading rename it to .env
 4. After renaming copy the .env to the `AlbumSystem/server`
 5. From that directory open terminal and run this command `docker compose up --build`
 to build the containers
