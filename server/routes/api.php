@@ -28,3 +28,9 @@ Route::middleware([CorsMiddleware::class, AuthCheck::class])
 //Auth
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+
+// Test if server is working
+Route::get('/hello',function() {
+    return view('app');
+});

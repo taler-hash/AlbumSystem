@@ -1,0 +1,14 @@
+:80 {
+    # Serve frontend from client/dist
+    root * /var/www/html/client/dist
+    file_server
+    try_files {path} /index.html
+}
+
+
+:8000 {
+    root * /var/www/html/server/public
+    php_fastcgi server:9000
+    file_server
+	encode gzip
+}

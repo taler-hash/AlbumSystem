@@ -1,0 +1,59 @@
+services:
+  db:
+    container_name: db
+    image: mysql:9.0
+    ports:
+      - 2000:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+    - app_network
+
+  client:
+    container_name: client
+    image: node:latest
+    build:
+      dockerfile: Dockerfile.client
+    volumes:
+      - ./client:/var/www/html/client
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  server:
+    container_name: server
+    image: php:8.2-fpm
+    volumes:
+      - ./server:/var/www/html/server
+    ports:
+      - 9000:9000
+    build:
+      dockerfile: Dockerfile.server
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./server:/var/www/html/server
+      - ./client:/var/www/html/client
+    build: 
+      dockerfile: Dockerfile.caddy
+    ports:
+      - 80:80
+      - 8000:8000
+    depends_on:
+      - server
+    networks:
+      - app_network
+networks:
+  app_network:
+    driver: bridge

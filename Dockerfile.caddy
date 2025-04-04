@@ -1,0 +1,6 @@
+FROM caddy:2
+
+# Set working directory
+WORKDIR /etc/caddy
+
+EXPOSE 80 443
