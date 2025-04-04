@@ -26,6 +26,10 @@ to build the containers
 2. /register
 3. /albums
 
+### Credentials
+username: admin
+password: admin
+
 
 ### PS
 1. Developed by: Jurie Tylier Pedrogas
