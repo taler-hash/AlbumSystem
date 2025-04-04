@@ -159,17 +159,16 @@ body {
   scale: 1.75;
 }
 
-
 .card-list-header {
   color: #030712;
-  width: calc(100%-1rem);
+  width: calc(100% - 1rem);
   padding: 0.5rem;
   font-size: large;
   font-weight: bold;
 }
 
 .card-list-content {
-  width: calc(100%-1rem);
+  width: calc(100% - 1rem);
   padding: 0 0.5rem 0 0.5rem;
   margin-bottom: 0.8rem;
 }
@@ -210,7 +209,7 @@ body {
 }
 
 .album-header-wrapper {
-  width: calc(100%-2rem);
+  width: calc(100% - 2rem);
   height: 3rem;
   display: flex;
   justify-content: space-between;
