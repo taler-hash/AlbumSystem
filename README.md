@@ -7,6 +7,10 @@
 4. Mysql
 5. Docker
 
+### Features
+1. Can vote and down vote albums 
+2. Can Delete album if your an admin
+
 #### Prerequisites
 1. Docker
 2. Git
