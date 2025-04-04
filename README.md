@@ -1,6 +1,6 @@
 # Album System
 
-### Teck Stacks
+### Tech Stacks
 1. Laravel v12
 2. Vue 3
 3. Typescript
