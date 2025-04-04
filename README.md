@@ -27,8 +27,8 @@ to build the containers
 3. /albums
 
 ### Credentials
-username: admin
-password: admin
+- username: admin
+- password: admin
 
 
 ### PS
